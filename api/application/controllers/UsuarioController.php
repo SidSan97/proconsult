@@ -12,11 +12,13 @@ class UsuarioController extends CI_Controller {
 	{
 		if(isset($_POST['enviar'])) {
 
+			$senha = password_hash($_POST['senha'], PASSWORD_BCRYPT);
+			
 			$dados = array(
 				'nome'  => $_POST['nome'],
 				'email' => $_POST['email'],
 				'cpf'   => $_POST['cpf'],
-				'senha' => $_POST['senha'],
+				'senha' => $senha,
 				'nivel' => $_POST['nivel']
 			);
 			
