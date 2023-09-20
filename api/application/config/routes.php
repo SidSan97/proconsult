@@ -6,3 +6,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['cadastrar'] = 'usuariocontroller/cadastroUsuario';
+$route['login']     = 'logincontroller/login';
