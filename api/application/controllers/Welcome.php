@@ -22,4 +22,9 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('abrir-chamado');
 	}
+
+	public function paginaResponderChamado()
+	{
+		$this->load->view('responder-chamado');
+	}
 }

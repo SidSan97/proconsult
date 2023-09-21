@@ -21,7 +21,7 @@
         <h2>Escolha uma opção:</h2> <br>
         <ul>
             <li><a href="abrir-chamado">Abrir chamado</a></li>
-            <li><a href="http://">Responder chamado</a></li>
+            <li><a href="responder-chamado">Responder chamado</a></li>
         </ul>
     </div>
 
