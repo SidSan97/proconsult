@@ -7,7 +7,7 @@
 </head>
 <body>
 <p>LOGIN</p>
-    <form action="http://127.0.0.1/edsa-proconsult/api/loginUsuario" method="post">
+    <form action="<?= base_url() ?>api/loginUsuario" method="post">
         <input type="text" name="email" placeholder="email"><br>
         <input type="password" name="senha" placeholder="senha"><br>
 

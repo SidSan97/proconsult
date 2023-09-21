@@ -5,7 +5,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('index');
 	}
 
 	public function paginaLogin()
@@ -13,8 +13,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('login-view');
 	}
 
-	public function cadastroView() 
+	public function paginaCadastro() 
 	{
 		$this->load->view('cadastro-view');
+	}
+
+	public function paginaAbrirChamado()
+	{
+		$this->load->view('abrir-chamado');
 	}
 }

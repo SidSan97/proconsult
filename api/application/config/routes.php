@@ -8,4 +8,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['cadastrar']      = 'usuariocontroller/cadastroUsuario';
 $route['login']          = 'logincontroller/login';
 $route['login-view']     = 'welcome/paginaLogin';
-$route['cadastro-view']  = 'welcome/cadastroView';
+$route['cadastro-view']  = 'welcome/paginaCadastro';
+$route['abrir-chamado']  = 'welcome/paginaAbrirChamado';
+$route['enviar-chamado'] = 'chamadocontroller/envioChamado';
