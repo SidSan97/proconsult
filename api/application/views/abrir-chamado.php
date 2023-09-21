@@ -25,7 +25,7 @@
 
             <div class="form-group mb-4">
                 <label for="file">Escolher arquivos</label> <br>
-                <input type="file" class="form-control-file" name="img[]" multiple accept="image/*" id="file">
+                <input type="file" class="form-control-file" name="file[]" multiple id="file">
             </div>
 
             <button type="submit" name="enviar" class="btn btn-primary">Enviar</button>

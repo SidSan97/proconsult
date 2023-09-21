@@ -8,12 +8,11 @@ class ChamadoController extends CI_Controller {
 		if(isset($_POST['enviar'])) {
 
 			$arquivos = $_FILES;
-			
-			if($_FILES['img']['name'][0] == '') {
+
+			if($_FILES['file']['name'][0] == '') {
 				$arquivos = null;
 			}			
 
-            $arquivos = $_FILES;
 			$dados = array(
 				'titulo'    => $_POST['titulo'],
 				'descricao' => $_POST['descricao'],
@@ -21,9 +20,9 @@ class ChamadoController extends CI_Controller {
 			);
 			
 			$this->load->model('CriarChamadoModel');
-			$cad = $this->CriarChamadoModel->inserirChamado($dados, $arquivos);
+			$result = $this->CriarChamadoModel->inserirChamado($dados, $arquivos);
 
-			$this->output->set_content_type('application/json')->set_output(json_encode($cad));
+			$this->output->set_content_type('application/json')->set_output(json_encode($result));
 		}
 		else {
 			
