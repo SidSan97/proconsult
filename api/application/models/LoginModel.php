@@ -2,13 +2,10 @@
 
 class LoginModel extends CI_Model
 {
-	public function logar($email, $senha)
-	{
-		$this->db->where('email', $email);
-		$this->db->where('senha', $senha);
+	public function logar($email)
+    {
+        $query = $this->db->get_where('usuario', array('email' => $email));
 
-		$user = $this->db->get('usuario')->row_array();
-
-		return $user;
-	}
+        return $query->row();
+    }
 }
