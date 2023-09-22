@@ -35,7 +35,7 @@ class CriarChamadoModel extends CI_Model
 
 							$arq = array (
 								'chamado_id' => $id,
-								'nome_anexo' => $arquivos['file']['name'][$i]
+								'nome_anexo' => $uploadFile
 							);
 
 							if(!$this->db->insert("anexos", $arq)) {
