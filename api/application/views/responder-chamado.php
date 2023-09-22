@@ -79,12 +79,14 @@ die;*/
 						</div>
 
 						<div class="modal-body">
-							<form action="" method="post">
+							<form action="http://<?= $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) ?>/editar-chamado" method="post">
 								<strong>STATUS: <?= $dados->dados[$i]->status ?></strong>
 								<div class="mb-3">
 									<label for="titulo" class="form-label">Titulo</label>
 									<input type="text" class="form-control" id="titulo" name="titulo" readonly value="<?= $dados->dados[$i]->titulo ?>">
 								</div>
+
+								<input type="hidden" name="valor" value="<?= $dados->dados[$i]->id ?>">
 
 								<div class="mb-3">
 									<label for="descricao" class="form-label">Descrição</label>
@@ -94,33 +96,26 @@ die;*/
 								</div>
 
 								<div class="mb-3">
-									<?php
-										$anexo   = $this->db->get_where('anexos', array('chamado_id' => $dados->dados[$i]->id));
-										$arquivo = $anexo->result();
-										$tam     = sizeof($arquivo);
-										
-										if($tam > 0) {
-											echo '<p><img href="'.$arquivo[0]->nome_anexo.'">Ver Anexo</a></p>';
-										}
-										
-											/*$arquivo = $anexo->result();
-											print_r($arquivo[0]->nome_anexo);*/
-											//for($i=0; $i<5; $i++)
-											//	print_r($arquivo[$i]->nome_anexo);
-										
-									?>
+									<label for="exampleFormControlTextarea1" class="form-label">Resposta para o chamado</label>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="resposta" required <?php if($dados->dados[$i]->status == "Finalizado"):?> readonly <?php endif?>>
+										<?=	$dados->dados[$i]->resposta ?>
+									</textarea>
 								</div>
 
-								<div class="mb-3">
-									<label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+								<?php if($dados->dados[$i]->status != "Finalizado"):?>
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="finalizado" name="finalizado" id="defaultCheck1">
+										<label class="form-check-label" for="defaultCheck1">
+											Finalizar chamado
+										</label>
+									</div>
+								<?php endif ?>
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+									<button type="submit" class="btn btn-primary" name="enviar">Responder</button>
 								</div>
 							</form>
-						</div>
-
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-							<button type="button" class="btn btn-primary">Responder</button>
 						</div>
 					</div>
 				</div>

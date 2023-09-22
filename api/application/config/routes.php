@@ -18,3 +18,4 @@ $route['enviar-chamado'] = 'chamadocontroller/envioChamado';
 $route['resposta-chamado'] = 'chamadocontroller/respostaChamado';
 
 $route['listar-chamados'] = 'listarchamadoscontroller/listarChamados';
+$route['editar-chamado']  = 'editarchamadocontroller/editarChamado';
