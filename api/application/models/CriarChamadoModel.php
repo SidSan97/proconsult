@@ -23,19 +23,17 @@ class CriarChamadoModel extends CI_Model
 					$extensao = pathinfo($arquivos['file']['name'][$i], PATHINFO_EXTENSION);
 					if ($arquivos['file']['error'][$i] === UPLOAD_ERR_OK) {
 
-						//echo $arquivos['file']['name'][$i].'<br>';
-						//$nomeImg   = $arquivos['file']['name'][$i];
-						//$nomeImg   = uniqid() . "." . $extensao;
-						//echo $nomeImg.'<br>';
+						$nomeImg = $arquivos['file']['name'][$i];
+						$nomeImg = uniqid() . "." . $extensao;
 						$uploadDir =  __DIR__; 
-						$uploadDir = str_replace("models", "files\\", $uploadDir);
-						$uploadFile = $uploadDir . basename($arquivos['file']['name'][$i]); 
+						$uploadDir = str_replace("api\application\models", "uploads\\", $uploadDir);
+						$uploadFile = $uploadDir . basename($nomeImg); 
 
 						if (move_uploaded_file($arquivos['file']['tmp_name'][$i], $uploadFile)) {
 
 							$arq = array (
 								'chamado_id' => $id,
-								'nome_anexo' => $uploadFile
+								'nome_anexo' => $nomeImg
 							);
 
 							if(!$this->db->insert("anexos", $arq)) {

@@ -25,7 +25,10 @@ class EditarChamadoController extends CI_Controller {
 			$this->load->model('EditarChamadoModel');
 			$result = $this->EditarChamadoModel->editandoChamado($dados, $id);
 
-			$this->output->set_content_type('application/json')->set_output(json_encode($result));
+			$data['json_result'] = json_encode($result);
+        	$this->load->view('responder-chamado', $data);
+
+			//$this->output->set_content_type('application/json')->set_output(json_encode($result));
 		}
 		else {
 			
@@ -34,7 +37,10 @@ class EditarChamadoController extends CI_Controller {
 				'message' => 'Método não permitido. Use POST para inserir novos usuários'
 			);
 
-			$this->output->set_content_type('application/json')->set_output(json_encode($json));
+			$data['json_result'] = json_encode($json);
+        	$this->load->view('responder-chamado', $data);
+
+			//$this->output->set_content_type('application/json')->set_output(json_encode($json));
 		}
 	}
 }

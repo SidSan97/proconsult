@@ -23,3 +23,5 @@ $route['listar-chamados'] = 'listarchamadoscontroller/listarChamados';
 $route['editar-chamado']  = 'editarchamadocontroller/editarChamado';
 
 $route['deslogar'] = 'deslogarcontroller/logout';
+
+$route['files']     = 'welcome/pastaDownload';

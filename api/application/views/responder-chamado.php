@@ -10,6 +10,9 @@
 	$json  = file_get_contents($url);
 	$dados = json_decode($json);
 	
+	if(isset($json_result)){
+		$json_data = json_decode($json_result);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +29,24 @@
 
 	<div class="container">
 		<h2 align="center">Listar chamados</h2> <br>
+
+		<?php if (isset($json_result) && $json_data !== null): ?>
+			<?php if($json_data->status == 200): ?>
+				<div class="mt-4 alert alert-success" role="alert">
+					<span class="text-dark"><?= $json_data->message ?></span>
+				</div>
+			<?php endif; ?>
+
+			<?php if($json_data->status == 405): ?>
+				<div class="mt-4 alert alert-danger" role="alert">
+					<span class="text-dark"><?= $json_data->message ?></span>
+				</div>
+			<?php endif; ?>
+		<?php endif ?>
+
+		<button type="button" class="btn btn-secondary"><a href="home" class="text-light">Voltar</a></button>
+
+		<br>
 
 		<table class="table">
 			<thead>
@@ -61,6 +82,12 @@
 							echo '<span class="text-danger">'.$dados->dados[$i]->status.'</span>';
 					?>
 				</td>
+
+				<!--td>
+					<?php 
+						echo $dados->anexo[$i]->nome_anexo .'<br>';
+					?>
+				</td-->
 
 				<td>
 					<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $dados->dados[$i]->id ?>">
@@ -102,6 +129,27 @@
 									</textarea>
 								</div>
 
+								<div class="mb-3">
+									<span>Anexos:</span>
+									<?php 
+										$anexos = $this->db->get_where('anexos', array('chamado_id' => $dados->dados[$i]->id));
+										if($anexos->num_rows() > 0)
+										{
+											$dado = $anexos->result();
+											
+											foreach($dado as $valor)
+											{
+												if($dado[0]->nome_anexo !== "") {
+													$dir =  $_SERVER['HTTP_HOST'].dirname($_SERVER['REQUEST_URI']);
+													$dir = str_replace("api", "uploads/", $dir);
+													echo ' <p><a href="http://'.$dir.$dado[0]->nome_anexo.'">Ver anexo</a></p>';
+												}
+											}
+											
+										}										
+									?>
+								</div>
+
 								<?php if($dados->dados[$i]->status != "Finalizado"):?>
 									<div class="form-check">
 										<input class="form-check-input" type="checkbox" value="finalizado" name="finalizado" id="defaultCheck1">
@@ -131,17 +179,6 @@
 			</tbody>
 		</table>
 
-			<!--form action="http://<?= $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) ?>/listar-chamados" method="post">
-			<label for="tipo_chamado">Selecione o tipo de chamado</label>
-			<select name="tipo_chamado" id="tipo_chamado" class="form-control mb-4" required>
-				<option value=""></option>
-				<option value="aberto">Aberto</option>
-				<option value="fechado">Fechado</option>
-				<option value="pendente">Em atendimento</option>
-			</select>
-
-			<button class="btn btn-primary" type="submit" name="enviar">Enviar</button>
-		</form-->
 	</div>
 	<!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

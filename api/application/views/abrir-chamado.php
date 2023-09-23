@@ -66,6 +66,9 @@ if(isset($json_result))
 
             <button type="submit" name="enviar" class="btn btn-primary">Enviar</button>
         </form>
+
+		<br>
+		<button type="submit" class="btn btn-warning"><a href="home" class="text-dark">Voltar</a></button>
     </div>
 
     <!-- Bootstrap -->

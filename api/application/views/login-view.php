@@ -1,7 +1,12 @@
 <?php
+session_start();
+
 if(isset($json_result)){
 	$json_data = json_decode($json_result);
 }
+
+if(isset($_SESSION['logado']))
+	header('location: index.php');
 ?>
 
 <!DOCTYPE html>
