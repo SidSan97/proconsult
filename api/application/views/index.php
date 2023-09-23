@@ -3,6 +3,12 @@
 
 	if(isset($json_result)){
 		$json_data = json_decode($json_result);
+
+		if($json_data->status == 200) {
+			$_SESSION['logado'] = true;
+			$_SESSION['nome']   = $json_data->nome;
+			$_SESSION['nivel']  = $json_data->nivel;
+		}
 	}
 ?>
 
@@ -42,16 +48,30 @@
 					<span class="text-dark"><?= $json_data->message ?></span>
 				</div>
 			<?php endif; ?>
+
+			<?php if($json_data->status == 201): ?>
+				<div class="mt-4 alert alert-info" role="alert">
+					<span class="text-dark"><?= $json_data->message ?></span>
+				</div>
+			<?php endif; ?>
 		<?php endif ?>
 
-		<?php if(!isset($_SESSION['logado']) and $_SESSION['logado'] == false): ?>
+		<?php if(!isset($_SESSION['logado'])):?>
 
 			<p>Você deve estar logado para usar o sistema</p>
 
 			<p><a href="login-view">Faça login</a></p> ou 
 			<p><a href="cadastro-view">Cadastre-se</a></p>
 
+		<?php else: ?>
+
+			<p>Olá <?= $_SESSION['nome'] ?></p>  
+			<p>Nivel: <strong><?= $_SESSION['nivel'] ?></strong></p>
+			<p><a href="deslogar"> Fazer Logout </a></p>
+		
 		<?php endif ?>
+
+		<br><br><br>
 
         <ul>
             <li><a href="abrir-chamado">Abrir chamado</a></li>

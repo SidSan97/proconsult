@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class LoginController extends CI_Controller {
@@ -18,13 +16,14 @@ class LoginController extends CI_Controller {
 
 			if ($usuario && password_verify($senha, $usuario->senha)) {
 
-				$_SESSION['logado'] = true;
-				$_SESSION['nivel']  = $usuario->nivel;
-				$_SESSION['nome'] = $usuario->nome;
+				$nome  = $usuario->nome;
+				$nivel = $usuario->nivel;
 
 				$json = array(
-					'status' => 200,
-					'message' => 'Logado com sucesso!'
+					'status'  => 200,
+					'message' => 'Logado com sucesso!',
+					'nome'    => $nome,
+					'nivel'   => $nivel
 				);
 
 				$data['json_result'] = json_encode($json);
