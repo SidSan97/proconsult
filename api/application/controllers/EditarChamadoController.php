@@ -34,7 +34,7 @@ class EditarChamadoController extends CI_Controller {
 			
 			$json = array(
 				'status' => 405,
-				'message' => 'Método não permitido. Use POST para inserir novos usuários'
+				'message' => 'Método não permitido. Use o formulário para responder um chamado por favor'
 			);
 
 			$data['json_result'] = json_encode($json);
