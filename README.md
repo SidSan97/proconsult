@@ -6,8 +6,7 @@
 
 <p>
   O projeto foi desenvolvivo com o framework PHP Codeigniter 3 visando sua facil instalação e configuração, além de sua ampla compatibilidade com o PHP 7.3 que é a versão usada neste
-  projeto. O Projeto é uma API REST que retorna os dados em formato JSON. Dentro do projeto há templates HTML que consomem dados da API. Há uma posta chamada database, onde há o
-  arquivo de banco de dados do projeto.
+  projeto. O Projeto é uma API REST que retorna os dados em formato JSON. Dentro do projeto há templates HTML que consomem dados da API. 
 </p>
 
 <strong>OBS: </strong> <br>
@@ -66,3 +65,14 @@
   <li> Login: <strong> http://localhost/proconsult/api/login </strong> </li>
   <li> Logout: <strong>http://localhost/proconsult/api/deslogar</strong></li>
 </ul>
+
+<br>
+
+<h4>Banco de dados</h4>
+
+<br>
+
+<p>
+  Há uma pasta de nome database onde há o arquivo sql para dump. O banco foi modelado no formato <strong>1:N</strong>
+  na tabela de anexos para uma melhor otimização e visualicaçao dos dados na tabela.
+</p>
