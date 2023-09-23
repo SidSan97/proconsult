@@ -1,9 +1,9 @@
 <?php 
 	session_start();
 
-	if(isset($_GET['q']) && $_GET['q'] == "nao_autorizado");
-		echo '<script>alert("Você não tem permissão para acessar esta página")</script>';
-
+	if(isset($json_result)){
+		$json_data = json_decode($json_result);
+	}
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +24,27 @@
     </style>
 </head>
 <body>
+	
+	<?php 	
+		if(isset($_GET['q']))
+		{
+			if($_GET['q'] == "nao_autorizado")
+				echo '<script>alert("Você não tem permissão para acessar esta página")</script>';
+		}
+	?>
 
     <div class="container">
         <h2>Escolha uma opção:</h2> <br>
 
-		<?php if(!isset($_SESSION['logado'])): ?>
+		<?php if (isset($json_result) && $json_data !== null): ?>
+			<?php if($json_data->status == 200): ?>
+				<div class="mt-4 alert alert-success" role="alert">
+					<span class="text-dark"><?= $json_data->message ?></span>
+				</div>
+			<?php endif; ?>
+		<?php endif ?>
+
+		<?php if(!isset($_SESSION['logado']) and $_SESSION['logado'] == false): ?>
 
 			<p>Você deve estar logado para usar o sistema</p>
 

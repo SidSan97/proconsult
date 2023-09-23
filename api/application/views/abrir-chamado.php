@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['logado'] == false or $_SESSION['nivel'] != "Colaborador") {
+if($_SESSION['logado'] == false or $_SESSION['nivel'] != "Cliente") {
 
 	header('location: index.php?q=nao_autorizado');
 }

@@ -18,7 +18,18 @@ if(isset($json_result)){
 <body>
 
 	<div class="container">
-		<h2 class="mt-4" align="center">LOGIN</h2>
+		<h2 class="mt-4" align="center">LOGIN</h2> <br>
+
+		<?php if (isset($json_result) && $json_data !== null): ?>
+
+			<?php if($json_data->status == 404): ?>
+				<div class="mt-4 alert alert-danger" role="alert">
+					<span class="text-dark"><?= $json_data->message ?></span>
+				</div>
+			<?php endif; ?>
+
+		<?php endif; ?>
+
 		<form action="http://<?= $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) ?>/login" method="post">
 			<input type="text" name="email" class="form-control" placeholder="email"><br>
 			<input type="password" name="senha" class="form-control" placeholder="senha"><br>
