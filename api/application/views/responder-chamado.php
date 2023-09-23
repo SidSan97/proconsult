@@ -51,10 +51,10 @@ die;*/
 
 				<td>
 					<?php 
-						if($dados->dados[$i]->status == "aberto")
+						if($dados->dados[$i]->status == "Aberto")
 							echo '<span class="text-success">'.$dados->dados[$i]->status.'</span>';
 
-						else if($dados->dados[$i]->status == "pendente")
+						else if($dados->dados[$i]->status == "Em andamento")
 							echo '<span class="text-warning">'.$dados->dados[$i]->status.'</span>';
 
 						else
@@ -105,15 +105,21 @@ die;*/
 								<?php if($dados->dados[$i]->status != "Finalizado"):?>
 									<div class="form-check">
 										<input class="form-check-input" type="checkbox" value="finalizado" name="finalizado" id="defaultCheck1">
-										<label class="form-check-label" for="defaultCheck1">
-											Finalizar chamado
-										</label>
+
+										<strong>
+											<label class="form-check-label text-danger" for="defaultCheck1">
+												Finalizar chamado
+											</label>
+										</strong>
 									</div>
 								<?php endif ?>
 
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-									<button type="submit" class="btn btn-primary" name="enviar">Responder</button>
+
+									<?php if($dados->dados[$i]->status != "Finalizado"):?>
+										<button type="submit" class="btn btn-primary" name="enviar">Responder</button>
+									<?php endif ?>
 								</div>
 							</form>
 						</div>

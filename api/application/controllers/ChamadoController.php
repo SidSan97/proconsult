@@ -16,22 +16,30 @@ class ChamadoController extends CI_Controller {
 			$dados = array(
 				'titulo'    => $_POST['titulo'],
 				'descricao' => $_POST['descricao'],
-				'status'    => "aberto"
+				'status'    => "Aberto"
 			);
 			
 			$this->load->model('CriarChamadoModel');
 			$result = $this->CriarChamadoModel->inserirChamado($dados, $arquivos);
 
-			$this->output->set_content_type('application/json')->set_output(json_encode($result));
+			$data['json_result'] = json_encode($result);
+        	$this->load->view('abrir-chamado', $data);
+
+			//$this->output->set_content_type('application/json')->set_output(json_encode($result));
 		}
 		else {
 			
 			$json = array(
 				'status' => 405,
-				'message' => 'Método não permitido. Use POST para inserir novos usuários'
+				'message' => 'Método não permitido. Use o formulário para abrir um novo chamado por favor'
 			);
 
-			$this->output->set_content_type('application/json')->set_output(json_encode($json));
+			$data['json_result'] = json_encode($json);
+        	$this->load->view('abrir-chamado', $data);
+
+			//exibiçao em json (comente as duas linhas acima)
+			//$this->output->set_content_type('application/json')->set_output(json_encode($json));
+			
 		}
 	}
 }

@@ -1,9 +1,3 @@
-<?php
-if(isset($json_result))
-	$json_data = json_decode($json_result);
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,29 +10,6 @@ if(isset($json_result))
 </head>
 <body>
     <div class="container">
-
-		<?php if (isset($json_result) && $json_data !== null): ?>
-
-			<?php if($json_data->status == 405): ?>
-				<div class="mt-4 alert alert-warning" role="alert">
-  					<span class="text-dark"><?= $json_data->message ?></span>
-				</div>
-			<?php endif; ?>
-
-			<?php if($json_data->status == 200): ?>
-				<div class="mt-4 alert alert-success" role="alert">
-  					<span class="text-dark"><?= $json_data->message ?></span>
-				</div>
-			<?php endif; ?>
-
-			<?php if($json_data->status == 500): ?>
-				<div class="mt-4 alert alert-danger" role="alert">
-  					<span class="text-dark"><?= $json_data->message ?></span>
-				</div>
-			<?php endif; ?>
-				
-		<?php endif; ?>
-
         <h2 align="center">Abertura de chamado</h2> <br>
 
         <form action="http://<?= $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) ?>/enviar-chamado" method="post" enctype="multipart/form-data">

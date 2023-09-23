@@ -57,7 +57,7 @@ class CriarChamadoModel extends CI_Model
 				if($erroUpload == 0) {
 
 					$json = array(
-						'status'  => 201,
+						'status'  => 200,
 						'message' => 'Chamado criado com sucesso.',
 					);
 	
@@ -66,7 +66,7 @@ class CriarChamadoModel extends CI_Model
 				else {
 
 					$json = array(
-						'status'  => 201,
+						'status'  => 200,
 						'message' => 'Chamado criado com sucesso. Alguns anexos não puderam ser enviados',
 					);
 	
@@ -76,7 +76,7 @@ class CriarChamadoModel extends CI_Model
 			else {
 			
 				$json = array(
-					'status'  => 201,
+					'status'  => 200,
 					'message' => 'Chamado criado com sucesso.',
 				);
 
