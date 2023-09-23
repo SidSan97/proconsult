@@ -1,15 +1,15 @@
 <?php 
+	session_start();
+
+	if($_SESSION['logado'] == false or $_SESSION['nivel'] != "Colaborador") {
+
+		header('location: index.php?q=nao_autorizado');
+	}
 
 	$url   = 'http://'.$_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']).'/listar-chamados';
 	$json  = file_get_contents($url);
 	$dados = json_decode($json);
-	/*$anexo = $this->db->get_where('anexos', array('chamado_id' => 5));
-
-	for($i=0; $i<$anexo->num_rows(); $i++) {
-		$arquivo = $anexo->result();
-		print_r($arquivo[$i]->nome_anexo);
-	}
-die;*/
+	
 ?>
 
 <!DOCTYPE html>

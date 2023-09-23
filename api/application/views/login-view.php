@@ -7,7 +7,7 @@
 </head>
 <body>
 <p>LOGIN</p>
-    <form action="<?= base_url() ?>api/loginUsuario" method="post">
+    <form action="http://<?= $_SERVER['HTTP_HOST'] . dirname($_SERVER['REQUEST_URI']) ?>/loginUsuario" method="post">
         <input type="text" name="email" placeholder="email"><br>
         <input type="password" name="senha" placeholder="senha"><br>
 

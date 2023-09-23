@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+
+	if(isset($_GET['q']) && $_GET['q'] == "nao_autorizado");
+		echo '<script>alert("Você não tem permissão para acessar esta página")</script>';
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,9 +24,19 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container">
         <h2>Escolha uma opção:</h2> <br>
+
+		<?php if(!isset($_SESSION['logado'])): ?>
+
+			<p>Você deve estar logado para usar o sistema</p>
+
+			<p><a href="login-view">Faça login</a></p> ou 
+			<p><a href="cadastro-view">Cadastre-se</a></p>
+
+		<?php endif ?>
+
         <ul>
             <li><a href="abrir-chamado">Abrir chamado</a></li>
             <li><a href="responder-chamado">Responder chamado</a></li>

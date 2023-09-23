@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if($_SESSION['logado'] == false or $_SESSION['nivel'] != "Colaborador") {
+
+	header('location: index.php?q=nao_autorizado');
+}
+
 if(isset($json_result))
 	$json_data = json_decode($json_result);
 ?>
