@@ -19,11 +19,22 @@ class LoginController extends CI_Controller {
 				$_SESSION['logado'] = true;
 				$_SESSION['nivel']  = $usuario['nivel'];
 				$_SESSION['nome'] = $usuario['nome'];
+
+				$json = array(
+					'status' => 200,
+					'message' => 'Logado com sucesso!'
+				);
+
+				$this->load->view('login-view', $json);
 				
 			} else {
 				
-				$data['erro'] = 'Credenciais inválidas';
-				$this->load->view('login-view', $data);
+				$json = array(
+					'status' => 404,
+					'message' => 'Credenciais Inválidas'
+				);
+
+				$this->load->view('login-view', $json);
 			}
 		} else {
 
