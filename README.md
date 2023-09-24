@@ -76,3 +76,10 @@
   Há uma pasta de nome database onde há o arquivo sql para dump. O banco foi modelado no formato <strong>1:N</strong>
   na tabela de anexos para uma melhor otimização e visualicaçao dos dados na tabela.
 </p>
+
+<h3><strong>Observação:</strong></h3> <br>
+
+<span>
+  Esta API teve sofrer algumas adaptações em seu desenvolvimento dentro do framework
+  CodeIgniter 3. Para a eexibição dos dados em formato JSON você pode ir ate o diretório <i>api\application\controllers</i> 
+</span>
