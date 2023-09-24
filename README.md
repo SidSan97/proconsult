@@ -80,8 +80,8 @@
 <h3><strong>Observação:</strong></h3> <br>
 
 <span>
-  Esta API teve sofrer algumas adaptações em seu desenvolvimento dentro do framework
-  CodeIgniter 3. Para a eexibição dos dados em formato JSON você pode ir ate o diretório <i>api\application\controllers.</i> 
+  Esta API teve de sofrer algumas adaptações em seu desenvolvimento dentro do framework
+  CodeIgniter 3. Para a exibição dos dados em formato JSON você pode ir ate o diretório <i>api\application\controllers.</i> 
   
   Neste diretório em todos os arquivos você verá linhas de código como:
 
