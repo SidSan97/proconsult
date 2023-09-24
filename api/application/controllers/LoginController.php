@@ -26,10 +26,10 @@ class LoginController extends CI_Controller {
 					'nivel'   => $nivel
 				);
 
-				//$data['json_result'] = json_encode($json);
-				//$this->load->view('index', $data);
+				$data['json_result'] = json_encode($json);
+				$this->load->view('index', $data);
 
-				$this->output->set_content_type('application/json')->set_output(json_encode($json));
+				//$this->output->set_content_type('application/json')->set_output(json_encode($json));
 
 				
 			} else {
