@@ -28,6 +28,9 @@ class LoginController extends CI_Controller {
 
 				$data['json_result'] = json_encode($json);
 				$this->load->view('index', $data);
+
+				//$this->output->set_content_type('application/json')->set_output(json_encode($result));
+
 				
 			} else {
 				
@@ -38,6 +41,9 @@ class LoginController extends CI_Controller {
 
 				$data['json_result'] = json_encode($json);
 				$this->load->view('login-view', $data);
+
+				//$this->output->set_content_type('application/json')->set_output(json_encode($result));
+
 			}
 		} else {
 
