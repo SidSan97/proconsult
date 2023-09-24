@@ -96,6 +96,12 @@
 
   Basta descomentar a linha comentada e comentar as 2 linhas que renderizam a view que terá as saidas 
   em formato json para testar a API em outras aplicações.
-</span>
+</span> <br>
+
+<h4>API no Postman</h4> <br>
+
+<img src="https://a.imagem.app/o3xWLT.png" widtth="834px"> <br>
+<img src="https://a.imagem.app/o3xOev.png" widtth="834px"> <br>
+<img src="https://a.imagem.app/o3xpy3.png" widtth="834px"> 
 
 
