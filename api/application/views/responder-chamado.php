@@ -60,7 +60,10 @@
 
 			<tbody> 
 
-		<?php  for($i=0; $i<count($dados->dados); $i++):?>
+		<?php  
+			if($dados->status != 404):
+				for($i=0; $i<count($dados->dados); $i++):
+		?>
 			<tr>
 				<td>
 					<?= $dados->dados[$i]->titulo ?>
@@ -174,7 +177,10 @@
 					</div>
 				</div>
 			</div>
-		<?php endfor; ?>
+		<?php 
+			endfor; 
+		endif;
+		?>
 
 			</tbody>
 		</table>
