@@ -85,8 +85,17 @@
   
   Neste diretório em todos os arquivos você verá linhas de código como:
 
- <i>$data['json_result'] = json_encode($json);</i>
- <i>$this->load->view('login-view', $data);</i>
+ <i>$data['json_result'] = json_encode($json);</i> <br>
+ <i>$this->load->view('login-view', $data);</i> <br>
+
+  E linhas comentadas como esta: <br>
+
+  <i>$this->output->set_content_type('application/json')->set_output(json_encode($json));</i> <br>
+
+  As não comentadas renderizam a view com o dado em json. A comentada é uma espécie de <i>print</i> de dados em json.
+
+  Basta descomentar a linha comentada e comentar as 2 linhas que renderizam a view que terá as saidas 
+  em formato json para testar a API em outras aplicações.
 </span>
 
 
