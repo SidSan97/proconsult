@@ -9,6 +9,9 @@
   projeto. O Projeto é uma API REST que retorna os dados em formato JSON. Dentro do projeto há templates HTML que consomem dados da API. 
 </p>
 
+<br> <h4>Este projeto em Laravel 10 </h4> 
+ - https://github.com/SidSan97/procunsult-laravel
+
 <strong>OBS: </strong> <br>
 
 <span>Se você não usa as credenciais default no seu banco de dados será preciso alterar o arquivo: <strong> proconsult\api\application\config\database.php</strong></span>
@@ -103,8 +106,4 @@
 <img src="https://a.imagem.app/o3xWLT.png" widtth="834px"> <br>
 <img src="https://a.imagem.app/o3xOev.png" widtth="834px"> <br>
 <img src="https://a.imagem.app/o3xpy3.png" widtth="834px"> 
-
-<br> <h4>Este projeto em Laravel 10</h4> 
- - https://github.com/SidSan97/procunsult-laravel
-
 
